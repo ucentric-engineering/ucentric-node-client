@@ -3,15 +3,7 @@
 ## Install
 
 ```
-npm install ucentric-node-client
-```
-
-## Developing
-
-```
-git clone
-npm install
-npm run test
+npm i @ucentric/ucentric-node-client
 ```
 
 ## Usage
@@ -68,6 +60,15 @@ Example Response:
   "reference": "message_10",
   "usage": 22
 }
+```
+
+
+## Developing
+
+```
+git clone
+npm install
+npm run test
 ```
 
 

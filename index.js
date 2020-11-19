@@ -7,24 +7,35 @@ class Ucentric {
   }
 
   request(endpoint = "", options = {}) {
-    let url = this.basePath + endpoint;
+    return new Promise((resolve, reject) => {
+      let url = this.basePath + endpoint;
 
-    let headers = {
-      'Authorization': this.auth,
-      'Content-type': 'application/json'
-    }
-
-    let config = {
-      ...options,
-      ...headers
-    }
-
-    return fetch(url, config).then(r => {
-      if (r.ok) {
-        return r.json()
+      let headers = {
+        'Content-Type': 'application/json',
+        'Authorization': this.auth
       }
-      throw new Error(r)
-    })
+
+      let config = {
+        ...options,
+        headers
+      }
+
+      fetch(url, config).then(r => {
+        r.json().then(res => {
+          if (r.ok) {
+            resolve(res)
+          } else {
+            reject(res)
+          }
+        }).catch(err => {
+          reject({
+            Status: 500,
+            Msg: "Unknown Error",
+            Code: "CLIENT"
+          });
+        });
+      })
+    });
   }
 
   getNudgesByReference(referenceId) {
