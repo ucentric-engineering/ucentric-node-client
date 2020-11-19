@@ -25,6 +25,16 @@ ucentric.getNudgesByReference('123').then(nudges => {
 });
 ```
 
+Optional constructor arguments include:
+
+```
+const ucentric = new Ucentric({
+  accountId: "abcd-1234-efgh",
+  baseUrl: "https://www.testserver.dev"
+});
+
+```
+
 ## Methods
 
 ### getNudgesByReference(referenceId)
@@ -62,6 +72,27 @@ Example Response:
 }
 ```
 
+### createNudgeToken(userId, expire?)
+
+Creates a signed token used to fetch Nudges. You must first enable [secure nudges](https://help.ucentric.io/article/42-secure-nudges) and pass an `accountId` parameter to the Ucentric constructor.
+
+Unless a unix timestamp value is passed for the expire option, tokens will expire 60 seconds after they are created.
+
+| Parameter  | Parameter Type |
+| ------------- | ------------- |
+| userId  | string  |
+| exp?  | number/unix timestamp  |
+
+Example Response:
+
+```
+{
+  key: "my-public-key",
+  token: "2629055688",
+  exp: 1605797115
+}
+```
+
 
 ## Developing
 
@@ -70,5 +101,3 @@ git clone
 npm install
 npm run test
 ```
-
-
