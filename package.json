@@ -1,0 +1,29 @@
+{
+  "name": "ucentric-node-client",
+  "version": "1.0.0",
+  "description": "Ucentric API NodeJS Client Library",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ucentric-engineering/ucentric-node-client.git"
+  },
+  "keywords": [
+    "ucentric"
+  ],
+  "author": "ucentric",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ucentric-engineering/ucentric-node-client/issues"
+  },
+  "homepage": "https://github.com/ucentric-engineering/ucentric-node-client#readme",
+  "dependencies": {
+    "isomorphic-unfetch": "^3.1.0"
+  },
+  "devDependencies": {
+    "fetch-mock-jest": "^1.3.0",
+    "jest": "^26.6.3"
+  }
+}
